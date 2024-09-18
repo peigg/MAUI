@@ -4,43 +4,51 @@
              x:Class="Hangman.MainPage">
 
     <Grid RowDefinitions=".6*, .4*">
-        <VerticalStackLayout>
+        <VerticalStackLayout Spacing="10">
             <Label 
             FontAttributes="Bold"
             HorizontalOptions="Center"
-            Text="Errors: 0 of 6">
+            Text="{Binding GameStatus}">
             </Label>
-            <Image Source="img0"
+            <Image Source="{Binding CurrentImage}"
                    HeightRequest="200">
                 
             </Image>
             <Label
                 FontSize="40"
                 HorizontalOptions="Center"
-                Text="_______"
+                Text="{Binding SpotLight}"
                 VerticalOptions="Center">
                 
             </Label>
             <Label
                 FontSize="Large"
                 HorizontalTextAlignment="Center"
-                Text="You lost!">
+                Text="{Binding Message}">
                 
             </Label>
             <Button
                 HorizontalOptions="Center"
                 Text="Reset"
-                WidthRequest="100"/>
+                WidthRequest="100"
+                Clicked="btnReset_Clicked"/>
             
         </VerticalStackLayout>
         <FlexLayout Grid.Row="1"
-                    Wrap="Wrap">
-            <Button
-                HeightRequest="50"
-                WidthRequest="50"
-                BackgroundColor="Navy"
-                Text="A"/>
-            
+                    JustifyContent="SpaceEvenly"
+                    BindableLayout.ItemsSource="{Binding Letters}"
+                    Wrap="Wrap"
+                    x:Name="LettersContainer">
+            <BindableLayout.ItemTemplate>
+                <DataTemplate>
+                    <Button
+                         HeightRequest="50"
+                         WidthRequest="50"
+                         Text="{Binding .}"
+                         Clicked="Button_Clicked"/>
+                </DataTemplate>
+            </BindableLayout.ItemTemplate>
+
         </FlexLayout>
     </Grid>
            
