@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Hangman.MainPage">
+
+    <Grid RowDefinitions=".6*, .4*">
+        <VerticalStackLayout>
+            <Label 
+            FontAttributes="Bold"
+            HorizontalOptions="Center"
+            Text="Errors: 0 of 6">
+            </Label>
+            <Image Source="img0"
+                   HeightRequest="200">
+                
+            </Image>
+            <Label
+                FontSize="40"
+                HorizontalOptions="Center"
+                Text="_______"
+                VerticalOptions="Center">
+                
+            </Label>
+            <Label
+                FontSize="Large"
+                HorizontalTextAlignment="Center"
+                Text="You lost!">
+                
+            </Label>
+            <Button
+                HorizontalOptions="Center"
+                Text="Reset"
+                WidthRequest="100"/>
+            
+        </VerticalStackLayout>
+        <FlexLayout Grid.Row="1"
+                    Wrap="Wrap">
+            <Button
+                HeightRequest="50"
+                WidthRequest="50"
+                BackgroundColor="Navy"
+                Text="A"/>
+            
+        </FlexLayout>
+    </Grid>
+           
+
+</ContentPage>
